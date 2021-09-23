@@ -13,7 +13,7 @@ const Flight = ({ state }) => {
 				<div>
 					<p>Longitude: { state[5].toFixed(2) }°</p>
 					<p>Latitude: { state[6].toFixed(2) }°</p>
-					<p>Altitude: { parseInt(state[13], 10) } m</p>
+					<p>Altitude: { state[13] == null ? "on the ground" : parseInt(state[13], 10) + " m"}</p>
 				</div>
 			</div>
 			<p><i className="fas fa-tachometer-alt"></i>Speed: { parseInt(state[9] * 3.6, 10) } km/H</p>

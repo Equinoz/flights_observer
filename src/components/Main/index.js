@@ -1,19 +1,31 @@
+import { connect } from "react-redux";
+
 import Flight from "../Flight";
 
 import "./main.scss";
 
-import data from "../data.js";
+const Main = ({ datasFetched, flights }) => <div className="main">
+	{ datasFetched && flights.length > 1 && <div className="container">
+		{ flights.map((flight, index) => <Flight key={ index } state={ flight } />) }
+	</div> }
 
-const Main = () => {
-	const dummiesData = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+	{ datasFetched && flights.length === 0 && <div className="no-datas">
+		<p>No datas from API. Please change your search's settings or retry in a few seconds.</p>
+	</div> }
 
-	return (
-		<div className="main">
-			<div className="container">
-				{ dummiesData.map((i, index) => <Flight key={ index } state={ data.state } />) }
-			</div>
+	{ !datasFetched && <div className="fetch-datas">
+		<div className="loader">
+			<div className="loader-animation" />
 		</div>
-	);
-};
+		<p>Please wait a few seconds...</p>
+	</div> }
+</div>;
 
-export default Main;
+export default connect(
+	state => {
+    return {
+			datasFetched: state.datasFetched,
+      flights: state.flights,
+    }
+  }
+)(Main);
