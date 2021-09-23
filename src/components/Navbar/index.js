@@ -1,7 +1,7 @@
 import "./navbar.scss";
 
 const Navbar = () => <div className="navbar">
-	<div class="navbar--desktop">
+	<div className="navbar--desktop">
 		<p>Search flights</p>
 		<p>by...</p>
 		<ul>

@@ -1,5 +1,4 @@
 import Home from "../Home";
-import './App.scss';
 
 const App = () => <>
   <Home />
