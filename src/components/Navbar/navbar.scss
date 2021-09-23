@@ -44,4 +44,39 @@
       padding-top: 2rem;
     }
   }
+
+  &--mobile {
+    color: $third-color;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li {
+        padding-top: 2rem;
+      }
+
+      .search-button {
+        padding-bottom: 2rem;
+        cursor: pointer;
+        text-shadow: 3px 3px 15px $primary-shadow;
+
+        &:hover {
+          color: black;
+          text-shadow: 3px 3px 15px $fourth-shadow;
+        }
+
+        &:active {
+          text-shadow: none;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $medium) {
+  .navbar {
+    width: 4rem;
+  }
 }

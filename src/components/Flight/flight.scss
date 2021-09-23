@@ -52,3 +52,28 @@
     box-shadow: none;
   }
 }
+
+@media (max-width: $small) {
+  .flight {
+    height: 13rem;
+    width: 18rem;
+    font-size: 0.8rem;
+
+    h3 {
+      font-size: 15px;
+    }
+  }
+}
+
+@media (max-width: $x-small) {
+  .flight {
+    margin: 0.6rem;
+    height: 11rem;
+    width: 13.5rem;
+    font-size: 0.7rem;
+
+    & > p:last-child {
+      display: none;
+    }
+  }
+}

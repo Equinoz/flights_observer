@@ -34,3 +34,17 @@
     }
   }
 }
+
+@media (max-width: $large) {
+  .footer {
+    height: 7rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}

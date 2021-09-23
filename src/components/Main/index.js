@@ -10,7 +10,7 @@ const Main = () => {
 	return (
 		<div className="main">
 			<div className="container">
-				{ dummiesData.map(i => <Flight state={ data.state } />) }
+				{ dummiesData.map((i, index) => <Flight key={ index } state={ data.state } />) }
 			</div>
 		</div>
 	);
