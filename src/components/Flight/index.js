@@ -1,7 +1,7 @@
 import "./flight.scss";
 
 const Flight = ({ state }) => {
-	const lastContact = () => `${new Date(state[4] * 1000).toISOString().slice(0, 16).replace("T", " ")} GMT`
+	const lastContact = () => `${ new Date(state[4] * 1000).toISOString().slice(0, 16).replace("T", " ") } GMT`
 
 	return (
 		<div className="flight">
