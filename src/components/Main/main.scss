@@ -36,4 +36,19 @@
       z-index: 100;
     }
   }
+
+  .no-datas {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      margin: 0 1rem 0 1rem;
+      font-size: 25px;
+      text-align: center;
+      color: $secondary-color;
+      text-shadow: 1px 1px 1px $primary-shadow;
+    }
+  }
 }

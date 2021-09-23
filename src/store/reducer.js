@@ -8,10 +8,11 @@ const initialState = {
 const reducer = (oldState = initialState, action) => {
 	switch (action.type) {
 		case FETCH_DATAS:
+			const flights = (action.payload.flights !== undefined) ? action.payload.flights : [];
 			return {
 				...oldState,
 				datasFetched: true,
-				flights: action.payload.flights
+				flights
 			};
 
 		default:

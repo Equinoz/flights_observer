@@ -10,7 +10,7 @@ const apiMW = _ => next => async action => {
 			action = fetchDataAction(flights);
 		}
 		catch (err) {
-			console.error(err);
+			action = fetchDataAction([]);
 		}
 	}
 
