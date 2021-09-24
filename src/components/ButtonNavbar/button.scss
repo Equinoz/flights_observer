@@ -29,3 +29,13 @@
     padding-right: 1rem;
   }
 }
+
+// TODO: disabled style to be removed
+
+.disabled, .disabled:hover, .disabled:active {
+  cursor: auto;
+  background-color: #424354;
+  color: black;
+  border: 1px solid #424354;
+  box-shadow: none;
+}
