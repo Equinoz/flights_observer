@@ -4,15 +4,17 @@ import ButtonNavbar from "../ButtonNavbar";
 
 import "./navbar.scss";
 
+// TODO: disabled style to be removed
 const Navbar = () => {
 	const buttons = [
-		{ icon: "globe", text: "Area" },
-		{ icon: "clock", text: "Time interval" },
-		{ icon: "plane-departure", text: "Departures by airport" },
-		{ icon: "plane-arrival", text: "Arrivals by airport" },
-		{ icon: "plane", text: "Aircraft" }
+		{ icon: "globe", text: "Area", disabled: true },
+		{ icon: "clock", text: "Time interval", disabled: true },
+		{ icon: "plane-departure", text: "Departures by airport", disabled: true },
+		{ icon: "plane-arrival", text: "Arrivals by airport", disabled: true },
+		{ icon: "plane", text: "Aircraft", disabled: true }
 	];
 
+	// Custom hook used to determine window width. Return boolean value
 	function useWindowWidth() {
 		const [width, setWidth] = useState(window.innerWidth < 780);
 		useLayoutEffect(() => {
@@ -35,6 +37,7 @@ const Navbar = () => {
 
 	return (
 		<div className="navbar" style={{ width: (!widthMobile || displayNavbar ? "18rem" : "4rem") }} >
+			{/* Navbar collapsed when not displayed or window width less than 780px */}
 			{ !displayNavbar && widthMobile && <div className="navbar--mobile">
 				<ul>
 					<li className="search-button">
@@ -46,6 +49,7 @@ const Navbar = () => {
 				</ul>
 			</div> }
 
+			{/* Navbar expanded when displayed or window width greater than or equal to 780px */}
 			{ (displayNavbar || !widthMobile) && <div className="navbar--desktop">
 				{ widthMobile && <i onClick={ toggleNavbar } className="back-arrow fas fa-3x fa-arrow-alt-circle-left"></i> }
 				<p>Search flights</p>
@@ -55,6 +59,7 @@ const Navbar = () => {
 						key={ index }
 						icon={ button.icon }
 						text={ button.text }
+						disabled={ button.disabled }
 					/>) }
 				</ul>
 			</div> }
