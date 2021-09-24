@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Flight from "../Flight";
 
@@ -6,7 +7,9 @@ import "./main.scss";
 
 const Main = ({ datasFetched, flights }) => <div className="main">
 	{ datasFetched && flights.length > 1 && <div className="container">
-		{ flights.map((flight, index) => <Flight key={ index } state={ flight } />) }
+		{ flights.map((flight, index) => <Link to={ "/flight/" + flight[0] } className="link">
+			<Flight key={ index } flight={ flight } />
+		</Link>) }
 	</div> }
 
 	{ datasFetched && flights.length === 0 && <div className="no-datas">
