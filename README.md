@@ -8,6 +8,7 @@ git clone git@github.com:Equinoz/flights_observer.git
 cd flights_observer
 npm install
 ```
+Then configure the `.env` file. You need an account on https://opensky-network.org/ to determine `username` and `password` values  
 
 ### Run a web server at localhost:3000
 ```
