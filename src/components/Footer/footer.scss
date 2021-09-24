@@ -1,0 +1,50 @@
+@import "../../styles/variables";
+
+.footer {
+  background-color: $fourth-color;
+  height: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  box-shadow: 5px -5px 10px $fourth-shadow;
+
+  h2 {
+    padding-bottom: 0.8rem;
+    margin: 0 1.5rem 0 1.5rem;
+    font-size: 1.4rem;
+    color: $third-color;
+    text-align: center;
+  }
+
+  p {
+    margin: 0 1.5rem 0 1.5rem;
+    font-size: 1.2rem;
+    color: #171345;
+    text-align: center;
+  }
+
+  a {
+    color: black;
+
+    &:hover {
+      font-style: italic;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: $large) {
+  .footer {
+    height: 7rem;
+
+    h2 {
+      font-size: 1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}

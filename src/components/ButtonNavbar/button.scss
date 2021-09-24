@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+
+.button-navbar {
+  background-color: $primary-color;
+  margin-top: 1.1rem;
+  padding: 1rem 0.8rem 1rem 0.8rem;
+  border-radius: 1rem;
+  color: $secondary-color;
+  border: 1px solid $primary-border;
+  box-shadow: 5px 5px 5px $primary-shadow;
+  white-space: nowrap;
+  overflow: hidden;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $primary-hover-color;
+    color: $secondary-hover-color;
+    border: 1px solid $primary-hover-border;
+    box-shadow: 2px 2px 2px $primary-hover-shadow;
+    transition-property: background-color, color, border, box-shadow;
+    transition-duration: 0.3s;
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+
+  i {
+    padding-right: 1rem;
+  }
+}
+
+// TODO: disabled style to be removed
+
+.disabled, .disabled:hover, .disabled:active {
+  cursor: auto;
+  background-color: #424354;
+  color: black;
+  border: 1px solid #424354;
+  box-shadow: none;
+}
