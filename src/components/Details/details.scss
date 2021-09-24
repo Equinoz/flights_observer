@@ -1,0 +1,150 @@
+@import "../../styles/variables";
+
+.details {
+  flex: 1;
+  background-image: url("../../styles/background/blue.jpg");
+  z-index: 0;
+  overflow-y: auto;
+
+	.details-section {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 3rem 2rem 3rem 2rem;
+		overflow-y: auto;
+
+		.back-home {
+			padding-bottom: 2rem;
+			font-size: 25px;
+			color: $secondary-color;
+			text-shadow: 1px 1px 1px $primary-shadow;
+			text-decoration: none;
+
+			i {
+				margin-right: 1.5rem;
+			}
+
+			&:hover {
+				font-style: italic;
+			}
+		}
+
+		.flight-details {
+			background-color: $sixth-color;
+			width: 550px;
+			height: 560px;
+			border-radius: 2rem;
+			box-shadow: 5px 5px 5px $primary-shadow;
+			color: $third-color;
+
+			.map {
+				height: 350px;
+				border-bottom: solid 1px $third-color;
+
+				.map-displayed {
+					position: static;
+					height: 100%;
+					width: 100%;
+
+					#plane-icon {
+						position: relative;
+						left: calc(50% - 8px);
+						bottom: calc(50% + 8px);
+						z-index: 100;
+					}
+				}
+
+				iframe, .map-error {
+					border-radius: 2rem 2rem 0 0;
+				}
+
+				.map-error {
+					background-color: $secondary-color;
+					height: 100%;
+					width: 100%;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					font-size: 30px;
+
+					p {
+						padding-bottom: 1rem;
+						color: red;
+					}
+				}
+			}
+
+			h2 {
+				padding: 1rem 0 2rem 0;
+				font-family: Azeret;
+				font-size: 25px;
+				font-weight: bold;
+				text-align: center;
+			}
+
+			.flight-informations {
+				display: flex;
+				justify-content: space-around;
+				font-size: 16.5px;
+
+				p {
+					padding-bottom: 0.8rem;
+
+					span {
+						color: black;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: $large) {
+	.details > .details-section > .flight-details {
+		width: 400px;
+		height: 670px;
+
+		.map > .map-error {
+			font-size: 25px;
+		}
+
+		.flight-informations {
+			flex-direction: column;
+			font-size: 16px;
+
+			p {
+				margin-left: 1rem;
+			}
+		}
+	}
+}
+
+@media (max-width: $small) {
+	.details {
+		.details-section {
+			padding: 2.5rem 0.2rem 1rem 0.2rem;
+
+			.flight-details {
+				width: 220px;
+				height: 650px;
+
+				.map > .map-error {
+					font-size: 15px;
+				}
+
+				h2 {
+					font-size: 20px;
+				}
+				.flight-informations {
+					font-size: 12px;
+
+					p {
+						margin-left: 0.2rem;
+					}
+				}
+			}
+		}
+	}
+}

@@ -8,8 +8,8 @@ import "./main.scss";
 const Main = ({ datasFetched, flights }) => <div className="main">
 	{/* datas fetched and flights to display */}
 	{ datasFetched && flights.length > 1 && <div className="container">
-		{ flights.map((flight, index) => <Link to={ "/flight/" + flight[0] } className="link">
-			<Flight key={ index } flight={ flight } />
+		{ flights.map((flight, index) => <Link to={ "/flight/" + flight[0] } key={ index } className="link">
+			<Flight flight={ flight } />
 		</Link>) }
 	</div> }
 
@@ -31,7 +31,7 @@ export default connect(
 	state => {
     return {
 			datasFetched: state.datasFetched,
-      flights: state.flights,
+      flights: state.flights
     }
   }
 )(Main);

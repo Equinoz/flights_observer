@@ -11,8 +11,8 @@ const Flight = ({ flight }) => {
 			<div className="position">
 				<i className="fas fa-globe"></i>
 				<div>
-					<p>Longitude: { flight[5].toFixed(2) }°</p>
-					<p>Latitude: { flight[6].toFixed(2) }°</p>
+					<p>Longitude: <span>{ flight[5] === null ? "no data" : flight[5].toFixed(2) + "°" }</span></p>
+					<p>Latitude: <span>{ flight[6] === null ? "no data" : flight[6].toFixed(2) + "°" }</span></p>
 					<p>Altitude: { flight[13] == null ? "on the ground" : parseInt(flight[13], 10) + " m"}</p>
 				</div>
 			</div>

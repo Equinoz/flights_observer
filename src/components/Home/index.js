@@ -4,6 +4,7 @@ import Navbar from "../Navbar";
 import Header from "../Header";
 import Main from "../Main";
 import Footer from "../Footer";
+import Details from "../Details";
 
 import "./home.scss";
 
@@ -17,7 +18,7 @@ const Home = () => <div className="home">
 			<Main />
 		</Route>
 		<Route exact path="/flight/:flightId">
-			<div>Détail du vol: flightId</div>
+			<Details />
 		</Route>
 		<Footer />
 	</section>
