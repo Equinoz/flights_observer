@@ -1,0 +1,48 @@
+@import "../../styles/variables";
+
+.details {
+  background-image: url("../../styles/background/blue.jpg");
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.flight-details {
+		background-color: $sixth-color;
+		width: 800px;
+		height: 600px;
+		border-radius: 2rem;
+		box-shadow: 5px 5px 5px $primary-shadow;
+		color: $third-color;
+
+		.map {
+
+			iframe {
+				border-radius: 2rem 2rem 0 0;
+				border-bottom: solid 1px $third-color;
+			}
+		}
+
+		h2 {
+			padding: 1rem 0 2rem 0;
+			font-family: Azeret;
+			font-size: 30px;
+			font-weight: bold;
+			text-align: center;
+		}
+
+		.flight_informations {
+			display: flex;
+			justify-content: space-around;
+			font-size: 20px;
+
+			p {
+				padding-bottom: 0.8rem;
+
+				span {
+					color: black;
+				}
+			}
+		}
+	}
+}
