@@ -1,7 +1,17 @@
+import { connect } from "react-redux";
+
+import Modal from "../Modal";
 import Home from "../Home";
 
-const App = () => <>
+const App = ({ showModal }) => <>
+	{ showModal && <Modal /> }
   <Home />
 </>;
 
-export default App;
+export default connect(
+	state => {
+    return {
+			showModal: state.showModal
+    }
+  }
+)(App);

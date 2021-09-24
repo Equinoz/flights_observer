@@ -1,6 +1,7 @@
-import { FETCH_DATAS } from "./actions";
+import { FETCH_DATAS, CLOSE_MODAL, OPEN_MODAL } from "./actions";
 
 const initialState = {
+	showModal: false,
 	datasFetched: false,
 	flights: []
 };
@@ -13,6 +14,18 @@ const reducer = (oldState = initialState, action) => {
 				...oldState,
 				datasFetched: true,
 				flights
+			};
+
+		case OPEN_MODAL:
+			return {
+				...oldState,
+				showModal: true
+			};
+
+		case CLOSE_MODAL:
+			return {
+				...oldState,
+				showModal: false
 			};
 
 		default:
