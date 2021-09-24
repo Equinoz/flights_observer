@@ -42,6 +42,19 @@
 				height: 350px;
 				border-bottom: solid 1px $third-color;
 
+				.map-displayed {
+					position: static;
+					height: 100%;
+					width: 100%;
+
+					#plane-icon {
+						position: relative;
+						left: calc(50% - 8px);
+						bottom: calc(50% + 8px);
+						z-index: 100;
+					}
+				}
+
 				iframe, .map-error {
 					border-radius: 2rem 2rem 0 0;
 				}

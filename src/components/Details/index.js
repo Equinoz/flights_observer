@@ -5,7 +5,6 @@ import { Link, useParams } from "react-router-dom";
 import "./details.scss";
 
 const Details = ({ flights }) => {
-	// TODO ajouter icone avion
 
 	const { flightId } = useParams();
 	const flight = flights.find(flight => flight[0] === flightId);
@@ -59,7 +58,10 @@ const Details = ({ flights }) => {
 				<div className="flight-details">
 					<div className="map">
 						{ (flight[5] && flight[6]) ?
-							<iframe title="map" src={ `https://www.google.com/maps/embed/v1/view?key=${ process.env.REACT_APP_MAPS_EMBED_API_KEY }&center=${ flight[6] }, ${ flight[5] }&zoom=5` } width={ frameWidth } height="350" aria-hidden="false"></iframe> :
+							<div className="map-displayed">
+								<iframe title="map" src={ `https://www.google.com/maps/embed/v1/view?key=${ process.env.REACT_APP_MAPS_EMBED_API_KEY }&center=${ flight[6] }, ${ flight[5] }&zoom=5` } width={ frameWidth } height="350" aria-hidden="false"></iframe> :
+								<i id="plane-icon" className="fas fa-plane" style={{ transform: `rotate(${ flight[10] - 90 }deg)` }}></i>
+							</div> :
 							<div className="map-error">
 								{ !flight[6] && <p>No data from API for latitude</p> }
 								{ !flight[5] && <p>No data from API for longitude</p> }
