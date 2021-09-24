@@ -1,13 +1,20 @@
+import { connect } from "react-redux";
 import { useLayoutEffect, useState } from "react";
 
 import ButtonNavbar from "../ButtonNavbar";
+import { OPEN_MODAL } from "../../store/actions";
 
 import "./navbar.scss";
 
-// TODO: disabled style to be removed
-const Navbar = () => {
+// TODO: style "disabled" à supprimer
+const Navbar = ({ openModal }) => {
+	// TODO exporter l'objet "buttons" et toute la logique liée à la modale
+	const selectArea = () => {
+		openModal();
+	};
+
 	const buttons = [
-		{ icon: "globe", text: "Area", disabled: true },
+		{ icon: "globe", text: "Area", disabled: false, onClick: selectArea },
 		{ icon: "clock", text: "Time interval", disabled: true },
 		{ icon: "plane-departure", text: "Departures by airport", disabled: true },
 		{ icon: "plane-arrival", text: "Arrivals by airport", disabled: true },
@@ -60,6 +67,7 @@ const Navbar = () => {
 						icon={ button.icon }
 						text={ button.text }
 						disabled={ button.disabled }
+						onClick={ button.onClick }
 					/>) }
 				</ul>
 			</div> }
@@ -67,4 +75,13 @@ const Navbar = () => {
 	);
 }
 
-export default Navbar;
+export default connect(
+	null,
+	dispatch => {
+    return {
+			openModal: () => {
+				dispatch({ type: OPEN_MODAL });
+			}
+    }
+  }
+)(Navbar);
