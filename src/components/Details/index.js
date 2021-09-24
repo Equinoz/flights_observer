@@ -1,11 +1,9 @@
 import { connect } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 import "./details.scss";
 
 const Details = ({ flights }) => {
-	// TODO ajouter un lien vers l'accueil
-	// TODO Gérer l'absence de coordonnées
 	// TODO responsive
 	// TODO ajouter icone avion
 
@@ -27,9 +25,17 @@ const Details = ({ flights }) => {
 
 	return(
 		<div className="details">
+			<Link to="/" className="back-home"><i className="fas fa-arrow-left"></i>Back to homepage</Link>
 			<div className="flight-details">
 				<div className="map">
-					<iframe title="map" src={ `https://www.google.com/maps/embed/v1/view?key=${ process.env.REACT_APP_MAPS_EMBED_API_KEY }&center=${ flight[6] }, ${ flight[5] }&zoom=5` } width="800" height="350" aria-hidden="false"></iframe>
+					{ (flight[5] && flight[6]) ?
+						<iframe title="map" src={ `https://www.google.com/maps/embed/v1/view?key=${ process.env.REACT_APP_MAPS_EMBED_API_KEY }&center=${ flight[6] }, ${ flight[5] }&zoom=5` } width="800" height="350" aria-hidden="false"></iframe> : 
+						<div className="map-error">
+							{ !flight[6] && <p>No data from API for latitude</p>}
+							{ !flight[5] && <p>No data from API for longitude</p>}
+							<p>Can't display the map</p>
+						</div>
+					}
 				</div>
 				<h2>Flight n°{ flight[0] }</h2>
 				<div className="flight_informations">
